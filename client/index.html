@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+<title>Collaborative Canvas</title>
+<link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <header id="toolbar">
+    <div class="tool-group">
+      <button class="tool-btn active" data-tool="brush" title="Brush">🖌️</button>
+      <button class="tool-btn" data-tool="eraser" title="Eraser">🧹</button>
+      <button class="tool-btn" data-tool="rectangle" title="Rectangle">▭</button>
+    </div>
+
+    <div class="tool-group">
+      <input type="color" id="colorPicker" value="#1a1a1a" title="Color" />
+      <input type="range" id="widthSlider" min="1" max="50" value="4" title="Stroke width" />
+      <span id="widthLabel">4px</span>
+    </div>
+
+    <div class="tool-group">
+      <button id="undoBtn" title="Undo">↶ Undo</button>
+      <button id="redoBtn" title="Redo">↷ Redo</button>
+      <button id="clearBtn" title="Clear canvas">🗑 Clear</button>
+    </div>
+
+    <div class="tool-group">
+      <button id="saveBtn" title="Save drawing to a file">💾 Save</button>
+      <label class="file-btn" title="Load a saved drawing">
+        📂 Load
+        <input type="file" id="loadInput" accept="application/json" hidden />
+      </label>
+    </div>
+
+    <div class="tool-group room-group">
+      <label>Room: <input type="text" id="roomInput" value="lobby" size="10" /></label>
+      <button id="joinRoomBtn">Join</button>
+    </div>
+
+    <div class="tool-group stats-group">
+      <span id="connStatus" class="status disconnected">● Connecting…</span>
+      <span id="fpsCounter">FPS: --</span>
+      <span id="latencyCounter">Latency: --</span>
+    </div>
+  </header>
+
+  <div id="userList" aria-label="Online users"></div>
+
+  <main id="canvasWrap">
+    <canvas id="mainCanvas"></canvas>
+    <canvas id="liveCanvas"></canvas>
+    <canvas id="cursorCanvas"></canvas>
+  </main>
+
+  <script type="module" src="js/main.js"></script>
+</body>
+</html>

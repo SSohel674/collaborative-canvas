@@ -1,0 +1,146 @@
+:root {
+  --bg: #f4f5f7;
+  --toolbar-bg: #ffffff;
+  --border: #dcdfe4;
+  --text: #1a1a1a;
+  --accent: #4363d8;
+  --danger: #e6194b;
+  --ok: #3cb44b;
+}
+
+* { box-sizing: border-box; }
+
+html, body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  color: var(--text);
+  background: var(--bg);
+  overflow: hidden;
+}
+
+#toolbar {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 16px;
+  padding: 10px 14px;
+  background: var(--toolbar-bg);
+  border-bottom: 1px solid var(--border);
+  position: relative;
+  z-index: 10;
+}
+
+.tool-group {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.tool-btn {
+  font-size: 18px;
+  padding: 6px 10px;
+  background: #fff;
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.tool-btn.active {
+  background: var(--accent);
+  border-color: var(--accent);
+  filter: brightness(1);
+}
+
+button {
+  font-size: 14px;
+  padding: 6px 10px;
+  background: #fff;
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+button:hover { background: #f0f1f3; }
+
+.file-btn {
+  font-size: 14px;
+  padding: 6px 10px;
+  background: #fff;
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+#widthSlider { width: 100px; }
+#widthLabel { font-size: 12px; color: #666; min-width: 32px; }
+
+.room-group input[type="text"] {
+  padding: 5px 8px;
+  border: 1px solid var(--border);
+  border-radius: 6px;
+}
+
+.stats-group {
+  margin-left: auto;
+  font-size: 12px;
+  color: #555;
+  gap: 12px;
+}
+
+.status.connected { color: var(--ok); }
+.status.disconnected { color: var(--danger); }
+.status.reconnecting { color: #e0a800; }
+
+#userList {
+  position: absolute;
+  top: 62px;
+  right: 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  z-index: 9;
+  pointer-events: none;
+}
+
+.user-chip {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  background: rgba(255,255,255,0.9);
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  padding: 3px 10px 3px 3px;
+  font-size: 12px;
+}
+
+.user-chip .dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  display: inline-block;
+}
+
+#canvasWrap {
+  position: relative;
+  width: 100%;
+  height: calc(100% - 57px);
+  overflow: hidden;
+  background: #ffffff;
+  background-image:
+    linear-gradient(rgba(0,0,0,0.04) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(0,0,0,0.04) 1px, transparent 1px);
+  background-size: 24px 24px;
+}
+
+#mainCanvas, #liveCanvas, #cursorCanvas {
+  position: absolute;
+  top: 0;
+  left: 0;
+  touch-action: none;
+}
+
+#mainCanvas { z-index: 1; }
+#liveCanvas { z-index: 2; pointer-events: none; }
+#cursorCanvas { z-index: 3; pointer-events: none; }
