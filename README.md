@@ -7,7 +7,7 @@ Node.js WebSocket server on the backend.** No frontend framework, no canvas
 library, no npm packages at all (see `ARCHITECTURE.md` for why the
 WebSocket protocol itself is hand-rolled rather than using `ws`/Socket.IO).
 
-## Deply
+## Deploy
 https://collaborative-canvas-2let.onrender.com/
 
 ## Setup
